@@ -3,6 +3,6 @@ import { render } from "vitest-browser-react";
 import App from "./App";
 
 test("<App />", async () => {
-  const { getByAltText } = render(<App />);
-  await expect.element(getByAltText("MeMemory")).toBeInTheDocument();
+	const { getByAltText } = render(<App />);
+	await expect.element(getByAltText("MeMemory")).toBeInTheDocument();
 });
