@@ -9,6 +9,7 @@ export const generateCards = (prefix: string): CardsMap =>
 			[`${prefix}_${index}`]: {
 				value: `${CARDS_FOLDER}/${index}.png`,
 				isFlipped: false,
+				isMatched: false,
 			},
 		}),
 		{},

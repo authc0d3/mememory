@@ -1,4 +1,5 @@
 import {
+	CheckMatchReducerAction,
 	FlipCardReducerAction,
 	MemoryReducerActionType,
 	ResetGameReducerAction,
@@ -8,6 +9,12 @@ export function flipCardAction(payload: string): FlipCardReducerAction {
 	return {
 		type: MemoryReducerActionType.FLIP_CARD,
 		payload,
+	};
+}
+
+export function checkMatchAction(): CheckMatchReducerAction {
+	return {
+		type: MemoryReducerActionType.CHECK_MATCH,
 	};
 }
 

@@ -16,4 +16,7 @@ test("generateShuffledCardsDeck", () => {
 	expect(Object.values(cards).filter(({ isFlipped }) => isFlipped).length).toBe(
 		0,
 	);
+	expect(Object.values(cards).filter(({ isMatched }) => isMatched).length).toBe(
+		0,
+	);
 });
