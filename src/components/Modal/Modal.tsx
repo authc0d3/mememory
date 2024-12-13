@@ -1,8 +1,8 @@
 import { forwardRef } from "react";
 import classNames from "classnames";
-import { ModalProps } from "./types";
-import styles from "./styles.module.css";
 import { Button } from "../Button";
+import { ModalProps } from "./types";
+import styles from "./styles.module.scss";
 
 const Modal: ModalProps = forwardRef(
 	({ children, className, closeText, onClose, ...dialogProps }, ref) => (

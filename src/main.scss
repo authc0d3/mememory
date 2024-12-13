@@ -1,0 +1,26 @@
+:root {
+	font-family: $defaultFontFamily;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	background: transparent linear-gradient(180deg, $grey1 0%, $grey2 100%) 0% 0%
+		no-repeat padding-box;
+}
+
+h1 {
+	font-size: 3em;
+	color: $grey9;
+	@media (min-width: $sm) {
+		font-size: 4em;
+	}
+}
+
+#root {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+}

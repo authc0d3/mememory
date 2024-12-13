@@ -4,7 +4,7 @@ import { useMemoryContext } from "@/hooks";
 import { getElapsedTimeString } from "@/utils";
 import { Card } from "../Card";
 import { Modal } from "../Modal";
-import styles from "./styles.module.css";
+import styles from "./styles.module.scss";
 
 const MemoryBoard: FC = () => {
 	const { cards, resetGame, isGameOver, isRestarting, startAt, endAt } =

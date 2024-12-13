@@ -3,6 +3,7 @@ import globals from "globals";
 import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
 import functional from "eslint-plugin-functional";
+import imports from "eslint-plugin-import";
 import tseslint from "typescript-eslint";
 
 export default tseslint.config(
@@ -18,6 +19,7 @@ export default tseslint.config(
 			"react-hooks": reactHooks,
 			"react-refresh": reactRefresh,
 			functional,
+			imports,
 		},
 		languageOptions: {
 			parserOptions: {
@@ -26,8 +28,15 @@ export default tseslint.config(
 			},
 		},
 		rules: {
+			// React
 			...reactHooks.configs.recommended.rules,
 			"react-hooks/exhaustive-deps": ["off"],
+			"react-refresh/only-export-components": [
+				"warn",
+				{ allowConstantExport: true },
+			],
+
+			// Functional
 			"functional/prefer-readonly-type": [
 				"error",
 				{
@@ -37,10 +46,6 @@ export default tseslint.config(
 					ignoreClass: false,
 					ignoreInterface: false,
 				},
-			],
-			"react-refresh/only-export-components": [
-				"warn",
-				{ allowConstantExport: true },
 			],
 		},
 	},

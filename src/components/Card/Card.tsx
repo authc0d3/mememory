@@ -3,7 +3,7 @@ import classNames from "classnames";
 import { useMemoryContext } from "@/hooks";
 import { CARD_BACK_IMG } from "@/data";
 import { CardProps } from "./types";
-import styles from "./styles.module.css";
+import styles from "./styles.module.scss";
 
 const Card: FC<CardProps> = ({ id, index, isFlipped, value }) => {
 	const { flipCard } = useMemoryContext();

@@ -47,8 +47,8 @@ test("Can't flip more than two cards", async () => {
 	await expect(cardCLoc.element().className.includes("flip")).toBe(false);
 });
 
-test("Game over", async () => {
-	const { getByTestId, getByText, getByRole } = render(<TestComponent />);
+test("Game over & reset", async () => {
+	const { getByTestId, getByText } = render(<TestComponent />);
 
 	for (let i = 0; i < MAX_CARDS; i++) {
 		await getByTestId(`original_${i}`).click();
@@ -57,5 +57,11 @@ test("Game over", async () => {
 	}
 
 	await expect.element(getByText("¡Completado!")).toBeVisible();
-	await expect.element(getByRole("button")).toBeVisible();
+	await expect.element(getByText("¡Completado!")).toBeVisible();
+	await expect.element(getByText("Jugar otra vez")).toBeVisible();
+
+	await getByText("Jugar otra vez").click();
+	await expect(
+		getByTestId("original_0").element().className.includes("flip"),
+	).toBe(false);
 });

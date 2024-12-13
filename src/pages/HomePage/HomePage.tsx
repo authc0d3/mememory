@@ -2,7 +2,7 @@ import { FC } from "react";
 import { useNavigate } from "react-router";
 import { Button, Logo } from "@/components";
 import { GAME_ROUTE } from "@/data";
-import styles from "./styles.module.css";
+import styles from "./styles.module.scss";
 
 const HomePage: FC = () => {
 	const navigate = useNavigate();
