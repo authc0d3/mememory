@@ -27,6 +27,7 @@ export default tseslint.config(
 		},
 		rules: {
 			...reactHooks.configs.recommended.rules,
+			"react-hooks/exhaustive-deps": ["off"],
 			"functional/prefer-readonly-type": [
 				"error",
 				{

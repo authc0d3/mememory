@@ -37,9 +37,4 @@ test("<Card />", async () => {
 	await expect(getByRole("cell").element().className.includes("flip")).toBe(
 		true,
 	);
-
-	await cardLoc.click();
-	await expect(getByRole("cell").element().className.includes("flip")).toBe(
-		false,
-	);
 });

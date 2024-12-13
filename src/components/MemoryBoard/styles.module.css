@@ -5,4 +5,49 @@
 	flex-wrap: wrap;
 	gap: 30px;
 	max-width: 860px;
+	margin: 30px 15px;
+}
+
+.restarting {
+	display: none;
+}
+
+.gameOver {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.gameOver h4 {
+	font-size: 1.6em;
+	margin: 0 0 15px;
+}
+
+.gameStats {
+	font-size: 2.75em;
+	font-weight: bold;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+}
+
+@media (min-width: 720px) {
+	.board {
+		margin: 0 0;
+	}
+
+	.gameOver {
+		flex-direction: row;
+	}
+
+	.gameOver h4 {
+		font-size: 2em;
+		margin: 0 0 0;
+	}
+
+	.gameStats {
+		font-size: 3.75em;
+	}
 }

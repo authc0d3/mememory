@@ -10,8 +10,9 @@ interface MemoryState {
 }
 
 interface MemoryContextProps extends MemoryState {
+	readonly isRestarting?: boolean;
+	readonly isGameOver?: boolean;
 	readonly flipCard?: (id: string) => void;
-	readonly isGameOver?: () => boolean;
 	readonly resetGame?: () => void;
 }
 

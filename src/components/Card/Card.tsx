@@ -19,6 +19,7 @@ const Card: FC<CardProps> = ({ id, index, isFlipped, value }) => {
 				[styles.flip]: isFlipped,
 			})}
 			onClick={handleOnClick}
+			data-testid={id}
 		>
 			<div className={styles.cardInner}>
 				<div className={styles.cardBack}>
