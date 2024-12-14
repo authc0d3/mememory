@@ -3,7 +3,6 @@ import globals from "globals";
 import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
 import functional from "eslint-plugin-functional";
-import imports from "eslint-plugin-import";
 import tseslint from "typescript-eslint";
 
 export default tseslint.config(
@@ -19,7 +18,6 @@ export default tseslint.config(
 			"react-hooks": reactHooks,
 			"react-refresh": reactRefresh,
 			functional,
-			imports,
 		},
 		languageOptions: {
 			parserOptions: {

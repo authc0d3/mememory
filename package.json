@@ -6,10 +6,12 @@
 	"scripts": {
 		"start": "vite",
 		"build": "tsc -b && vite build",
-		"lint": "eslint .",
+		"build:docker": "docker-compose up",
+		"lint": "eslint ./src",
 		"preview": "vite preview",
 		"test": "vitest --browser.headless --watch=false",
-		"test:ui": "vitest"
+		"test:ui": "vitest",
+		"test:coverage": "vitest run --coverage --browser.headless"
 	},
 	"dependencies": {
 		"classnames": "^2.5.1",
@@ -27,6 +29,7 @@
 		"@types/react-dom": "^18.3.1",
 		"@vitejs/plugin-react": "^4.3.4",
 		"@vitest/browser": "^2.1.8",
+		"@vitest/coverage-v8": "^2.1.8",
 		"@vitest/ui": "^2.1.8",
 		"eslint": "^9.15.0",
 		"eslint-plugin-functional": "^7.1.0",

@@ -10,6 +10,9 @@ export default mergeConfig(
 				name: "chromium",
 				provider: "playwright",
 			},
+			coverage: {
+				reporter: ["text", "json", "html"],
+			},
 		},
 	}),
 );

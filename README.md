@@ -1,37 +1,82 @@
-# Prueba técnica
+# 🧠 MeMemory Game
 
-El objetivo de esta prueba es conocer un poco mejor cómo trabajas, las buenas prácticas que sigues y tu atención por el
-detalle. Valoraremos la sencillez, facilidad para entender el código y la robustez. 
-Aspectos que nos facilitan aseguar la calidad, revisar, modificar y mantener el código.  
+El clásico juego "Memory" usando memes y realizado con React.
 
-Para realizar el ejercicio te proporcionaremos un proyecto vacío creado con CRA y un diseño realizado con Adobe XD para
-que puedas obtener los materiales necesarios de forma cómoda:
+El proyecto se ha realizado aplicando buenas prácticas en diferentes niveles:
 
-https://xd.adobe.com/view/2119e5a1-31d4-42e2-5edd-4e565781bb65-5728/flow/
+- **📂 Arquitectura de carpetas:** Se ha aplicado una estructura de carpetas acorde a la dimensión del proyecto, agrupando cada subcarpeta o archivo según la finalidad del mismo. Cada carpeta es un modulo que contiene un archivo barrel que simplifica el proceso de importar desde otros módulos.
+- **💾 Gestión de estado:** Para la gestión del estado del juego se ha optado por usar el context API junto con el hook useReducer, lo cuál nos brinda la potencia que nos daría una librería como Redux, pero ahorrandonos el peso de esa lib en el bundle.
+- **✅ Código optimizado:** Se ha optado por utilizar un mapa clave-valor para gestionar las tarjetas del juego en lugar de utilizar el clásico array. Esto nos permite modificar el estado de las tarjetas mejorando el performance al evitar recorrer el array en busca de las mismas.
+- **🎨 Estilos:** Para los estilos se ha seguido la norma "mobile first", de forma que estos están pensados de base para que todo se vea bien en dispositivos móviles y luego se les aplican las reglas correspondientes para pantallas más grandes.
+- **🔍 Lintado y formato:** Se ha optado por utilizar ESLint con la configuración recomendada para React, pero añadiendo también algunas normas como el usar inmutabilidad a la hora de definir las propiedades de nuestros tipos e interfaces. Para mantener un formato adecuado se ha utilizado prettier.
+- **🧪 Testing:** Los tests se lanzan en un navegador Chromium gracias a Playwright utilizando el runner vitest. Esto nos permite testear de una manera más cercana a como lo hace un usuario real.
 
-Una vez implementado tendrás que ponernos un Pull Request para que podamos preguntarte por tu código o sugerir alguna
-mejora. De esta manera nos podremos conocer un poco mejor, ya que las revisiones de código forman parte de nuestro día a
-día :)
+Algunas features adicionales que he agregado al proyecto son:
 
-Te sugerimos que empieces implementando la mecánica básica del ejercicio y posteriormente añadas los detalles y mejoras
-que consideres, de esta manera tendrás algo revisable aunque se te acabe el tiempo.
- 
+- **Sistema de puntuación** con estrellas en base a la cantidad de intentos realizados
+- **Animaciones CSS** que enriquecen la experiencia de juego
+- Configuración para **despliegue automatizado con Docker**
 
-## Descripción del ejercicio
+### ⬇️ Instalar dependencias
 
-Se trata de implementar un juego clásico; el memory. La mecánica es bastante sencilla:
+```console
+yarn install
+```
 
-Al empezar la partida tienes una parrilla de tarjetas vistas del reverso. Las tarjetas contienen una serie de parejas de
-imágenes que se colocan de forma aleatoria en cada tirada. Puedes descubrir dos tarjetas a la vez:
+### 🧑🏻‍💻 Ejecutar proyecto en modo desarrollo
 
-* Si las tarjetas son iguales se quedan descubiertas.
-* Si las tarjetas son distintas se vuelven a poner del reverso para
-que sigas buscando parejas. 
-* El juego termina cuando hayas revelado todas las parejas.
+```console
+yarn start
+```
 
-## Pasos para preparar el entorno para realizar la prueba
+Vite levantará el server de desarrollo en: http://localhost:3000/
 
-1) Es necesario tener instalado node >= 10 y yarn.
-2) Clonas este repo
-3) Ejecutas "yarn" en la carpeta del proyecto
-4) Ejecutas "yarn start" para comenzar a desarrollar en http://localhost:3000
+### 🔍 Ejecutar linter de código
+
+```console
+yarn lint
+```
+
+### 🧪 Lanzar tests
+
+Modo headless, sin entorno gráfico:
+
+```console
+yarn test
+```
+
+Modo browser, con entorno gráfico y hot reload para desarrollo:
+
+```console
+yarn test:ui
+```
+
+Comprobar coberturas:
+
+```console
+yarn test:coverage
+```
+
+### 🖥️ Previsualizar el build
+
+```console
+yarn preview
+```
+
+Vite levantará el server para la previsualización en: http://localhost:8080/
+
+### 🚀 Build para producción
+
+```console
+yarn build
+```
+
+### 📦 Desplegar con Docker
+
+Para desplecar una versión dockerizada solo necesitas tener instalado Docker en tu máquina, acceder mediante terminal a la raíz del proyecto y ejecutar el siguiente comando:
+
+```console
+yarn build:docker
+```
+
+Una vez haya terminado de levantar el contenedor podrás usar la aplicación en: http://localhost:8080/
