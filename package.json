@@ -7,7 +7,7 @@
 		"start": "vite",
 		"build": "tsc -b && vite build",
 		"build:docker": "docker-compose up",
-		"lint": "eslint ./src",
+		"lint": "eslint .",
 		"preview": "vite preview",
 		"test": "vitest --browser.headless --watch=false",
 		"test:ui": "vitest",
@@ -15,10 +15,13 @@
 	},
 	"dependencies": {
 		"classnames": "^2.5.1",
+		"i18next": "^24.1.0",
+		"i18next-browser-languagedetector": "^8.0.2",
 		"iconoir-react": "^7.10.1",
 		"lodash": "^4.17.21",
 		"react": "^18.3.1",
 		"react-dom": "^18.3.1",
+		"react-i18next": "^15.2.0",
 		"react-router": "^7.0.2"
 	},
 	"devDependencies": {
@@ -27,6 +30,7 @@
 		"@types/node": "^22.10.2",
 		"@types/react": "^18.3.12",
 		"@types/react-dom": "^18.3.1",
+		"@types/react-i18next": "^8.1.0",
 		"@vitejs/plugin-react": "^4.3.4",
 		"@vitest/browser": "^2.1.8",
 		"@vitest/coverage-v8": "^2.1.8",

@@ -1,13 +1,15 @@
 import { FC, useEffect, useMemo, useRef } from "react";
+import { useTranslation } from "react-i18next";
+import classNames from "classnames";
 import { useMemoryContext } from "@/hooks";
 import { getElapsedTimeString } from "@/utils";
 import { Button } from "../Button";
 import { Rate } from "../Rate";
 import { GameOverModalProps } from "./types";
 import styles from "./styles.module.scss";
-import classNames from "classnames";
 
 const GameOverModal: FC<GameOverModalProps> = ({ className, ...props }) => {
+	const { t } = useTranslation();
 	const { resetGame, isGameOver, startAt, endAt } = useMemoryContext();
 	const dialogRef = useRef<HTMLDialogElement>(null);
 
@@ -33,7 +35,7 @@ const GameOverModal: FC<GameOverModalProps> = ({ className, ...props }) => {
 		>
 			<div className={styles.dialogContent}>
 				<div className={styles.gameResume}>
-					<h4>¡Completado!</h4>
+					<h4>{t("Completed!")}</h4>
 					<div className={styles.gameTime}>
 						<img src="/clock.svg" alt="clock" />
 						<span>{elapsedTime}</span>
@@ -42,7 +44,7 @@ const GameOverModal: FC<GameOverModalProps> = ({ className, ...props }) => {
 				<Rate />
 			</div>
 			<div className={styles.dialogFooter}>
-				<Button onClick={resetGame}>Jugar otra vez</Button>
+				<Button onClick={resetGame}>{t("Play again")}</Button>
 			</div>
 		</dialog>
 	);

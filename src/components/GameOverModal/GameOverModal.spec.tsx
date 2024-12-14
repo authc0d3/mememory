@@ -5,6 +5,7 @@ import {
 	MemoryContextProvider,
 	MemoryState,
 } from "@/context";
+import i18n from "@/i18n";
 import GameOverModal from "./GameOverModal";
 
 function TestComponent() {
@@ -30,11 +31,11 @@ test("<GameOverModal />", async () => {
 	const { getByTestId, getByText } = render(<TestComponent />);
 
 	await expect.element(getByTestId("modal")).toBeVisible();
-	await expect.element(getByText("¡Completado!")).toBeVisible();
+	await expect.element(getByText(i18n.t("Completed!"))).toBeVisible();
 	await expect.element(getByText("1:15")).toBeVisible();
 	await expect.element(getByTestId("rate")).toBeVisible();
-	await expect.element(getByText("Jugar otra vez")).toBeVisible();
+	await expect.element(getByText(i18n.t("Play again"))).toBeVisible();
 
-	await getByText("Jugar otra vez").click();
+	await getByText(i18n.t("Play again")).click();
 	await expect.element(getByTestId("modal")).not.toBeVisible();
 });

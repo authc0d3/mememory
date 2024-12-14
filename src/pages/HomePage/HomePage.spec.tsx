@@ -1,5 +1,6 @@
 import { BrowserRouter } from "react-router";
 import { expect, test } from "vitest";
+import i18n from "@/i18n";
 import { render } from "vitest-browser-react";
 import HomePage from "./HomePage";
 
@@ -11,5 +12,5 @@ test("<HomePage />", async () => {
 	);
 	await expect.element(getByAltText("MeMemory")).toBeInTheDocument();
 	await expect.element(getByText("MeMemory")).toBeInTheDocument();
-	await expect.element(getByText("Comenzar")).toBeInTheDocument();
+	await expect.element(getByText(i18n.t("Play"))).toBeInTheDocument();
 });

@@ -1,8 +1,9 @@
 import { FC } from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router";
+import { IconoirProvider } from "iconoir-react";
 import { GamePage, HomePage } from "../pages";
 import { GAME_ROUTE, MAIN_ROUTE } from "../data";
-import { IconoirProvider } from "iconoir-react";
+import "@/i18n";
 
 const App: FC = () => (
 	<IconoirProvider>

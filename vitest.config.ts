@@ -5,6 +5,7 @@ export default mergeConfig(
 	viteConfig,
 	defineConfig({
 		test: {
+			setupFiles: `./src/scripts/setupTests.ts`,
 			browser: {
 				enabled: true,
 				name: "chromium",

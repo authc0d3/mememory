@@ -13,10 +13,10 @@
 	}
 
 	&[open] {
-		animation: fadeIn 250ms ease-in;
+		animation: fadeIn 200ms ease-in;
 
 		&::backdrop {
-			animation: fadeInBackdrop 250ms ease-in;
+			animation: fadeInBackdrop 200ms ease-in;
 		}
 	}
 
