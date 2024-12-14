@@ -1,10 +1,11 @@
 import { FC } from "react";
-import { MemoryBoard } from "@/components";
+import { GameOverModal, MemoryBoard } from "@/components";
 import { MemoryContextProvider } from "@/context";
 
 const GamePage: FC = () => (
 	<MemoryContextProvider>
 		<MemoryBoard />
+		<GameOverModal />
 	</MemoryContextProvider>
 );
 

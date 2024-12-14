@@ -1,0 +1,12 @@
+.rate {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 4px;
+	margin-top: 10px;
+
+	svg {
+		color: $secondary;
+		font-size: 1.2em;
+	}
+}

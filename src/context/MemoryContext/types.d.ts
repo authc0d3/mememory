@@ -5,6 +5,8 @@ interface MemoryState {
 	readonly cards: CardsMap;
 	readonly selectedCardIds: readonly string[];
 	readonly matches: number;
+	readonly attempts: number;
+	readonly isGameOver: boolean;
 	readonly startAt: Date;
 	readonly endAt?: Date;
 }
@@ -45,4 +47,6 @@ export type MemoryReducer = (
 	action: MemoryReducerAction,
 ) => MemoryState;
 
-export type MemoryContextProviderProps = PropsWithChildren;
+export type MemoryContextProviderProps = PropsWithChildren & {
+	readonly initialState?: MemoryState;
+};

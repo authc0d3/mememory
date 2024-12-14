@@ -1,0 +1,85 @@
+.dialog {
+	width: 90%;
+	max-width: 500px;
+	border: none;
+	background-color: $light;
+	border-radius: 20px;
+	outline: none;
+	padding: 0;
+
+	&::backdrop {
+		background: $dark;
+		opacity: 0.6;
+	}
+
+	&[open] {
+		animation: fadeIn 250ms ease-in;
+
+		&::backdrop {
+			animation: fadeInBackdrop 250ms ease-in;
+		}
+	}
+
+	.dialogContent {
+		padding: 30px 50px;
+
+		.gameResume {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: space-between;
+
+			@media (min-width: $sm) {
+				flex-direction: row;
+			}
+
+			h4 {
+				font-size: 1.6em;
+				margin: 0 0 15px;
+
+				@media (min-width: $sm) {
+					font-size: 2em;
+					margin: 0 0 0;
+				}
+			}
+
+			.gameTime {
+				font-size: 2.75em;
+				font-weight: bold;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 10px;
+
+				@media (min-width: $sm) {
+					font-size: 3.75em;
+				}
+			}
+		}
+	}
+
+	.dialogFooter {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0 50px 30px;
+	}
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes fadeInBackdrop {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 0.6;
+	}
+}

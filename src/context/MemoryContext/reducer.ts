@@ -3,7 +3,7 @@ import { getMemoryContextInitialState } from "./context";
 import { MemoryReducer, MemoryReducerActionType } from "./types.d";
 
 export const memoryReducer: MemoryReducer = (state, action) => {
-	const { cards, selectedCardIds, matches } = state;
+	const { cards, selectedCardIds, matches, attempts } = state;
 
 	switch (action.type) {
 		case MemoryReducerActionType.FLIP_CARD: {
@@ -34,14 +34,19 @@ export const memoryReducer: MemoryReducer = (state, action) => {
 			const cardA = selectedCardIds[0];
 			const cardB = selectedCardIds[1];
 			const isMatched = cards[cardA].value === cards[cardB].value;
+
+			const totalAttempts = attempts + 1;
 			const totalMatches = isMatched ? matches + 1 : matches;
 			const endAt = totalMatches === MAX_CARDS ? new Date() : undefined;
+			const isGameOver = !!endAt;
 
 			return {
 				...state,
 				selectedCardIds: [],
+				attempts: totalAttempts,
 				matches: totalMatches,
 				endAt,
+				isGameOver,
 				cards: {
 					...cards,
 					[cardA]: {

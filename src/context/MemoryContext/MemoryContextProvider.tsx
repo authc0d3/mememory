@@ -7,13 +7,13 @@ import { CHECK_MATCH_TIMEOUT } from "@/data";
 
 const MemoryContextProvider: FC<MemoryContextProviderProps> = ({
 	children,
+	initialState,
 }) => {
 	const [state, dispatch] = useReducer(
 		memoryReducer,
-		memoryContextInitialState,
+		initialState ?? memoryContextInitialState,
 	);
 	const [isRestarting, setIsRestarting] = useState<boolean>(false);
-	const isGameOver = !!state.endAt;
 
 	function flipCard(cardId: string): void {
 		dispatch(flipCardAction(cardId));
@@ -36,7 +36,7 @@ const MemoryContextProvider: FC<MemoryContextProviderProps> = ({
 
 	return (
 		<MemoryContext.Provider
-			value={{ ...state, isGameOver, isRestarting, flipCard, resetGame }}
+			value={{ ...state, isRestarting, flipCard, resetGame }}
 		>
 			{children}
 		</MemoryContext.Provider>

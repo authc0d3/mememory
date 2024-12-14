@@ -5,7 +5,9 @@ import { generateShuffledCardsDeck } from "@/utils";
 export const getMemoryContextInitialState = (): MemoryState => ({
 	cards: generateShuffledCardsDeck(),
 	selectedCardIds: [],
+	attempts: 0,
 	matches: 0,
+	isGameOver: false,
 	startAt: new Date(),
 });
 

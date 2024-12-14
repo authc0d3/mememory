@@ -3,6 +3,11 @@
 	height: 75px;
 	perspective: 1000px;
 	cursor: pointer;
+	transition-duration: 200ms;
+
+	&:hover {
+		transform: scale(1.05, 1.05);
+	}
 
 	.cardInner {
 		width: 100%;
@@ -52,8 +57,14 @@
 		}
 	}
 
-	&.flip .cardInner {
-		transform: rotateY(180deg);
+	&.flip {
+		&:hover {
+			transform: scale(1, 1);
+		}
+
+		.cardInner {
+			transform: rotateY(180deg);
+		}
 	}
 
 	@media (min-width: $sm) {
