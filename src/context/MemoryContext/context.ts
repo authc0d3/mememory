@@ -8,7 +8,6 @@ export const getMemoryContextInitialState = (): MemoryState => ({
 	attempts: 0,
 	matches: 0,
 	isGameOver: false,
-	startAt: new Date(),
 });
 
 export const memoryContextInitialState: MemoryState =

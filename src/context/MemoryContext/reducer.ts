@@ -3,7 +3,7 @@ import { getMemoryContextInitialState } from "./context";
 import { MemoryReducer, MemoryReducerActionType } from "./types.d";
 
 export const memoryReducer: MemoryReducer = (state, action) => {
-	const { cards, selectedCardIds, matches, attempts } = state;
+	const { cards, selectedCardIds, matches, attempts, startAt } = state;
 
 	switch (action.type) {
 		case MemoryReducerActionType.FLIP_CARD: {
@@ -18,6 +18,7 @@ export const memoryReducer: MemoryReducer = (state, action) => {
 			return {
 				...state,
 				selectedCardIds: [...selectedCardIds, action.payload],
+				startAt: startAt ?? new Date(),
 				cards: {
 					...cards,
 					[action.payload]: {

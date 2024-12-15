@@ -7,7 +7,7 @@ interface MemoryState {
 	readonly matches: number;
 	readonly attempts: number;
 	readonly isGameOver: boolean;
-	readonly startAt: Date;
+	readonly startAt?: Date;
 	readonly endAt?: Date;
 }
 

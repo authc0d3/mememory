@@ -14,7 +14,7 @@ El proyecto se ha realizado aplicando buenas prácticas en diferentes niveles:
 Algunas features adicionales que he agregado al proyecto son:
 
 - **Sistema de puntuación** con estrellas en base a la cantidad de intentos realizados
-- **Animaciones CSS** que enriquecen la experiencia de juego
+- **Animaciones y sonidos** que enriquecen la experiencia de juego
 - **Soporte multi-idioma** basado en la configuración del navegador del usuario
 - Configuración para **despliegue automatizado con Docker**
 
@@ -58,6 +58,14 @@ Comprobar coberturas:
 yarn test:coverage
 ```
 
+Se puede consultar el análisis de coberturas en formato HTML mediante el archivo coverage/index.html que se generará en la raíz del proyecto.
+
+### 🚀 Build para producción
+
+```console
+yarn build
+```
+
 ### 🖥️ Previsualizar el build
 
 ```console
@@ -65,12 +73,6 @@ yarn preview
 ```
 
 Vite levantará el server para la previsualización en: http://localhost:8080/
-
-### 🚀 Build para producción
-
-```console
-yarn build
-```
 
 ### 📦 Desplegar con Docker
 

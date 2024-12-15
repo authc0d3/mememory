@@ -1,16 +1,23 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import classNames from "classnames";
-import { useMemoryContext } from "@/hooks";
-import { CARD_BACK_IMG } from "@/data";
+import { useMemoryContext, useSound } from "@/hooks";
+import { CARD_BACK_IMG, FLIP_SOUND } from "@/data";
 import { CardProps } from "./types";
 import styles from "./styles.module.scss";
 
 const Card: FC<CardProps> = ({ id, index, isFlipped, value }) => {
-	const { flipCard } = useMemoryContext();
+	const { flipCard, isRestarting, startAt } = useMemoryContext();
+	const playFlipSound = useSound(FLIP_SOUND);
 
 	function handleOnClick(): void {
+		if (isFlipped) return;
 		flipCard?.(id);
 	}
+
+	useEffect(() => {
+		if (!startAt || isRestarting) return;
+		playFlipSound();
+	}, [isFlipped]);
 
 	return (
 		<div

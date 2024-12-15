@@ -1,7 +1,8 @@
 import { FC, useEffect, useMemo, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import classNames from "classnames";
-import { useMemoryContext } from "@/hooks";
+import { GAME_OVER_SOUND } from "@/data";
+import { useMemoryContext, useSound } from "@/hooks";
 import { getElapsedTimeString } from "@/utils";
 import { Button } from "../Button";
 import { Rate } from "../Rate";
@@ -12,9 +13,10 @@ const GameOverModal: FC<GameOverModalProps> = ({ className, ...props }) => {
 	const { t } = useTranslation();
 	const { resetGame, isGameOver, startAt, endAt } = useMemoryContext();
 	const dialogRef = useRef<HTMLDialogElement>(null);
+	const playGameOverSound = useSound(GAME_OVER_SOUND);
 
 	const elapsedTime = useMemo(
-		() => (endAt ? getElapsedTimeString(startAt, endAt) : ""),
+		() => (startAt && endAt ? getElapsedTimeString(startAt, endAt) : ""),
 		[isGameOver],
 	);
 
@@ -24,6 +26,7 @@ const GameOverModal: FC<GameOverModalProps> = ({ className, ...props }) => {
 			return;
 		}
 		dialogRef.current?.showModal();
+		playGameOverSound();
 	}, [isGameOver]);
 
 	return (

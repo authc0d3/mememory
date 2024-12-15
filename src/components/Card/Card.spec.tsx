@@ -37,4 +37,5 @@ test("<Card />", async () => {
 	await expect(getByRole("cell").element().className.includes("flip")).toBe(
 		true,
 	);
+	await expect(HTMLAudioElement.prototype.play).toHaveBeenCalledOnce();
 });

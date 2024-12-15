@@ -30,6 +30,7 @@ beforeEach(() => {
 test("<GameOverModal />", async () => {
 	const { getByTestId, getByText } = render(<TestComponent />);
 
+	await expect(HTMLAudioElement.prototype.play).toHaveBeenCalledOnce();
 	await expect.element(getByTestId("modal")).toBeVisible();
 	await expect.element(getByText(i18n.t("Completed!"))).toBeVisible();
 	await expect.element(getByText("1:15")).toBeVisible();
