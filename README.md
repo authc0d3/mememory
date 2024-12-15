@@ -4,6 +4,7 @@ El clásico juego "Memory" usando memes y realizado con React.
 
 El proyecto se ha realizado aplicando buenas prácticas en diferentes niveles:
 
+- **🏗️ Builder:** Se ha sustituido CRA por Vite para mejorar la experiencia de desarrollo y minimizar los tiempos a la hora de hacer el build de la aplicación.
 - **📂 Arquitectura de carpetas:** Se ha aplicado una estructura de carpetas acorde a la dimensión del proyecto, agrupando cada subcarpeta o archivo según la finalidad del mismo. Cada carpeta es un modulo que contiene un archivo barrel que simplifica el proceso de importar desde otros módulos.
 - **💾 Gestión de estado:** Para la gestión del estado del juego se ha optado por usar React Context API junto con el hook useReducer, lo cuál nos facilita gestionar el estado y todas las etapas del juego, favoreciendo el mantenimineto y facilitando testear la lógica de negocio al tenerla separada de los componentes visuales, pero ahorrandonos el peso de libs como Redux en el bundle de una app tan sencilla.
 - **✅ Código optimizado:** Se ha optado por utilizar un mapa clave-valor para gestionar las tarjetas del juego en lugar de utilizar el clásico array. Esto nos permite modificar el estado de las tarjetas mejorando el performance al evitar recorrer el array en busca de las mismas.
