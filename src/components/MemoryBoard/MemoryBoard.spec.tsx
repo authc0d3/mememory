@@ -1,4 +1,4 @@
-import { beforeEach, expect, test, vi } from "vitest";
+import { expect, test } from "vitest";
 import { render } from "vitest-browser-react";
 import { MemoryContextProvider } from "@/context";
 import { MAX_CARDS } from "@/data";
@@ -11,10 +11,6 @@ function TestComponent() {
 		</MemoryContextProvider>
 	);
 }
-
-beforeEach(() => {
-	vi.useFakeTimers();
-});
 
 test("<MemoryBoard />", async () => {
 	const { getByRole } = render(<TestComponent />);

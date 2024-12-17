@@ -1,10 +1,10 @@
 import { PropsWithChildren } from "react";
-import { CardsMap } from "@/types";
+import { CardId, CardsMap, MatchNumber } from "@/types";
 
 interface MemoryState {
 	readonly cards: CardsMap;
-	readonly selectedCardIds: readonly string[];
-	readonly matches: number;
+	readonly selectedCardId?: CardId;
+	readonly matches: MatchNumber;
 	readonly attempts: number;
 	readonly isGameOver: boolean;
 	readonly startAt?: Date;
@@ -26,20 +26,16 @@ export enum MemoryReducerActionType {
 
 export interface FlipCardReducerAction {
 	readonly type: MemoryReducerActionType.FLIP_CARD;
-	readonly payload: string;
-}
-
-export interface CheckMatchReducerAction {
-	readonly type: MemoryReducerActionType.CHECK_MATCH;
+	readonly payload: CardId;
 }
 
 export interface ResetGameReducerAction {
 	readonly type: MemoryReducerActionType.RESET_GAME;
+	readonly payload: MemoryState;
 }
 
 export type MemoryReducerAction =
 	| FlipCardReducerAction
-	| CheckMatchReducerAction
 	| ResetGameReducerAction;
 
 export type MemoryReducer = (

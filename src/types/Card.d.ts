@@ -4,4 +4,6 @@ export interface Card {
 	readonly isMatched: boolean;
 }
 
-export type CardsMap = Readonly<Record<string, Card>>;
+export type CardId = string;
+
+export type CardsMap = Readonly<Record<CardId, Card>>;

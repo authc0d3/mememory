@@ -1,9 +1,13 @@
-import { FC, useEffect, useReducer, useState } from "react";
+import { FC, useReducer, useState } from "react";
+import { CardId } from "@/types";
 import { MemoryContextProviderProps } from "./types.d";
 import { memoryReducer } from "./reducer";
-import { MemoryContext, memoryContextInitialState } from "./context";
-import { checkMatchAction, flipCardAction, resetGameAction } from "./actions";
-import { CHECK_MATCH_TIMEOUT } from "@/data";
+import {
+	getMemoryContextInitialState,
+	MemoryContext,
+	memoryContextInitialState,
+} from "./context";
+import { flipCardAction, resetGameAction } from "./actions";
 
 const MemoryContextProvider: FC<MemoryContextProviderProps> = ({
 	children,
@@ -15,24 +19,16 @@ const MemoryContextProvider: FC<MemoryContextProviderProps> = ({
 	);
 	const [isRestarting, setIsRestarting] = useState<boolean>(false);
 
-	function flipCard(cardId: string): void {
+	function flipCard(cardId: CardId): void {
 		dispatch(flipCardAction(cardId));
-	}
-
-	function checkMatch(): void {
-		if (state.selectedCardIds.length < 2) return;
-		setTimeout(() => {
-			dispatch(checkMatchAction());
-		}, CHECK_MATCH_TIMEOUT);
 	}
 
 	function resetGame(): void {
 		setIsRestarting(true);
-		dispatch(resetGameAction());
+		const newGameState = getMemoryContextInitialState();
+		dispatch(resetGameAction(newGameState));
 		setTimeout(() => setIsRestarting(false));
 	}
-
-	useEffect(checkMatch, [state.selectedCardIds.length]);
 
 	return (
 		<MemoryContext.Provider

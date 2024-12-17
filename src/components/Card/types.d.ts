@@ -1,6 +1,6 @@
-import { Card } from "@/types";
+import { Card, CardId } from "@/types";
 
 export interface CardProps extends Card {
-	readonly id: string;
+	readonly id: CardId;
 	readonly index: number;
 }

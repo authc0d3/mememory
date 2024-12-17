@@ -1,7 +1,7 @@
 import { FC, useEffect, useMemo, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import classNames from "classnames";
-import { GAME_OVER_SOUND } from "@/data";
+import { GAME_OVER_SOUND, FLIP_TIMEOUT } from "@/data";
 import { useMemoryContext, useSound } from "@/hooks";
 import { getElapsedTimeString } from "@/utils";
 import { Button } from "../Button";
@@ -20,14 +20,19 @@ const GameOverModal: FC<GameOverModalProps> = ({ className, ...props }) => {
 		[isGameOver],
 	);
 
-	useEffect(() => {
+	function handleGameOver(): void {
 		if (!isGameOver) {
 			dialogRef.current?.close();
 			return;
 		}
-		dialogRef.current?.showModal();
-		playGameOverSound();
-	}, [isGameOver]);
+
+		setTimeout(() => {
+			dialogRef.current?.showModal();
+			playGameOverSound();
+		}, FLIP_TIMEOUT);
+	}
+
+	useEffect(handleGameOver, [isGameOver]);
 
 	return (
 		<dialog
@@ -41,7 +46,7 @@ const GameOverModal: FC<GameOverModalProps> = ({ className, ...props }) => {
 					<h4>{t("Completed!")}</h4>
 					<div className={styles.gameTime}>
 						<img src="/clock.svg" alt="clock" />
-						<span>{elapsedTime}</span>
+						<span data-testid="elapsedTime">{elapsedTime}</span>
 					</div>
 				</div>
 				<Rate />

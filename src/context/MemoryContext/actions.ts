@@ -1,23 +1,18 @@
+import { CardId } from "@/types";
 import {
-	CheckMatchReducerAction,
 	FlipCardReducerAction,
 	MemoryReducerActionType,
+	MemoryState,
 	ResetGameReducerAction,
 } from "./types.d";
 
-export function flipCardAction(payload: string): FlipCardReducerAction {
+export function flipCardAction(payload: CardId): FlipCardReducerAction {
 	return {
 		type: MemoryReducerActionType.FLIP_CARD,
 		payload,
 	};
 }
 
-export function checkMatchAction(): CheckMatchReducerAction {
-	return {
-		type: MemoryReducerActionType.CHECK_MATCH,
-	};
-}
-
-export function resetGameAction(): ResetGameReducerAction {
-	return { type: MemoryReducerActionType.RESET_GAME };
+export function resetGameAction(payload: MemoryState): ResetGameReducerAction {
+	return { type: MemoryReducerActionType.RESET_GAME, payload };
 }
